@@ -2740,15 +2740,15 @@ input, select, textarea {
 			}
 
 			body:not(.is-touch) .tiles article:hover > .image {
-				-moz-transform: scale(1.1);
-				-webkit-transform: scale(1.1);
-				-ms-transform: scale(1.1);
-				transform: scale(1.1);
+				-moz-transform: scale(1);
+				-webkit-transform: scale(1);
+				-ms-transform: scale(1);
+				transform: scale(1);
 			}
 
 				body:not(.is-touch) .tiles article:hover > .image:before {
 					background-color: #eb84da;
-					opacity: 0.8;
+					opacity: 1;
 				}
 
 				body:not(.is-touch) .tiles article:hover > .image:after {
