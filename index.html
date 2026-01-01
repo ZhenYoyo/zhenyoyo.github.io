@@ -66,7 +66,7 @@
 								</body>
 								</html><br />
 								</h1>
-								<p> Making forking possibilities。捏一些可能的花园</p>
+								<p> Making forking possibilities. 捏一些可能的花园</p>
 							</header>
 
 						
@@ -194,6 +194,19 @@
 						</div>
 					</div>
 
+					<!-- Random Gallery -->
+					<div id="main">
+						<div class="inner">
+							<header>
+								<h2>Random Gallery</h2>
+							</header>
+							<div id="carouselGallery" class="carousel-gallery" style="position:relative;max-width:1200px;margin:auto;">
+								<!-- Carousel images will be inserted here -->
+								<!-- Buttons removed for automatic switching -->
+							</div>
+						</div>
+					</div>
+
 				<!-- Footer -->
 					<footer id="footer">
 						<div class="inner">
@@ -243,6 +256,91 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<!-- Carousel Gallery Script -->
+			<script>
+			// 你可以在这里自定义图片库
+			const carouselImages = [
+			  { src: 'images/fafa.jpg', title: '作品1', desc: '描述1', link: '#' },
+			  { src: 'images/orchid.jpg', title: '作品2', desc: '描述2', link: '#' },
+			  { src: 'images/seasense.jpg', title: '作品3', desc: '描述3', link: '#' },
+			  // ...继续添加
+			];
+
+			let currentIndex = 0;
+
+			function showCarouselImage(idx) {
+			  const gallery = document.getElementById('carouselGallery');
+			  if (!gallery) return;
+			  gallery.querySelectorAll('.carousel-item').forEach(e => e.remove());
+			  const item = carouselImages[idx];
+			  const div = document.createElement('div');
+			  div.className = 'carousel-item';
+			  div.style.textAlign = 'center';
+			div.innerHTML = `
+				<a href="${item.link}"><img src="${item.src}" alt="" style="width:640px;height:360px;object-fit:cover"/></a>
+				<h3 style="margin:10px 0 5px 0;">${item.title}</h3>
+				<p style="margin:0 0 10px 0;">${item.desc}</p>
+			`;
+			  gallery.insertBefore(div, gallery.querySelector('#prevBtn'));
+			}
+
+			function showNext() {
+			  currentIndex = (currentIndex + 1) % carouselImages.length;
+			  showCarouselImage(currentIndex);
+			}
+			function showPrev() {
+			  currentIndex = (currentIndex - 1 + carouselImages.length) % carouselImages.length;
+			  showCarouselImage(currentIndex);
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+			  showCarouselImage(currentIndex);
+			  // 自动切换
+			  setInterval(showNext, 4000);
+			});
+			</script>
+
+		
+			<!-- Custom Random Gallery Script -->
+			<script>
+			// 你可以在这里自定义图片库
+			const galleryImages = [
+			  { src: 'randomgallery/light.jpg', title: '作品1', desc: '描述1', link: '#' },
+			  { src: 'randomgallery/seasense.jpg', title: '作品2', desc: '描述2', link: '#' },
+			  { src: 'randomgallery/tame.jpg', title: '作品3', desc: '描述3', link: '#' },
+			  // ...继续添加
+			];
+
+			function shuffle(arr) {
+			  return arr.sort(() => Math.random() - 0.5);
+			}
+
+			function renderRandomGallery() {
+			  const gallery = document.getElementById('randomGallery');
+			  if (!gallery) return;
+			  gallery.innerHTML = '';
+			  // 随机选取3张图片展示
+			  shuffle(galleryImages).slice(0, 3).forEach(item => {
+			    const article = document.createElement('article');
+			    article.innerHTML = `
+			      <span class="image">
+			        <img src="${item.src}" alt="" />
+			      </span>
+			      <a href="${item.link}">
+			        <h2>${item.title}</h2>
+			        <div class="content">
+			          <p>${item.desc}</p>
+			        </div>
+			      </a>
+			    `;
+			    gallery.appendChild(article);
+			  });
+			}
+			document.addEventListener('DOMContentLoaded', renderRandomGallery);
+			</script>
+
+
 
 	</body>
 </html>
