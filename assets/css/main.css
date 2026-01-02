@@ -148,7 +148,7 @@ input, select, textarea {
 		-ms-transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		transition: border-bottom-color 0.2s ease, color 0.2s ease;
 		text-decoration: none;
-		color: #5276ec;
+		color: #6bff2c;
 		border-bottom: dotted 1px rgba(32, 163, 245, 0.999);
 	}
 
