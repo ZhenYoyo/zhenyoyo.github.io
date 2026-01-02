@@ -261,9 +261,10 @@
 			<script>
 			// 你可以在这里自定义图片库
 			const carouselImages = [
-			  { src: 'images/fafa.jpg', title: '作品1', desc: '描述1', link: '#' },
-			  { src: 'images/orchid.jpg', title: '作品2', desc: '描述2', link: '#' },
-			  { src: 'images/seasense.jpg', title: '作品3', desc: '描述3', link: '#' },
+			  { src: 'randomgallery/light.jpg', title: 'ILightUUp', desc: '', link: '#' },
+			  { src: 'randomgallery/seasense.jpg', title: 'Sea, Sense, and Melody', desc: '', link: '#' },
+			  { src: 'randomgallery/tame.jpg', title: 'Tame', desc: '', link: '#' },
+
 			  // ...继续添加
 			];
 
@@ -278,7 +279,7 @@
 			  div.className = 'carousel-item';
 			  div.style.textAlign = 'center';
 			div.innerHTML = `
-				<a href="${item.link}"><img src="${item.src}" alt="" style="width:640px;height:360px;object-fit:cover"/></a>
+				<img src="${item.src}" alt="" style="width:640px;height:360px;object-fit:cover"/>
 				<h3 style="margin:10px 0 5px 0;">${item.title}</h3>
 				<p style="margin:0 0 10px 0;">${item.desc}</p>
 			`;
@@ -302,43 +303,7 @@
 			</script>
 
 		
-			<!-- Custom Random Gallery Script -->
-			<script>
-			// 你可以在这里自定义图片库
-			const galleryImages = [
-			  { src: 'images/webcollage.jpg', title: '作品1', desc: '描述1', link: '#' },
-			  { src: 'images/performance.jpg', title: '作品2', desc: '描述2', link: '#' },
-			  { src: 'images/100attach2.jpg', title: '作品3', desc: '描述3', link: '#' },
-			  // ...继续添加
-			];
-
-			function shuffle(arr) {
-			  return arr.sort(() => Math.random() - 0.5);
-			}
-
-			function renderRandomGallery() {
-			  const gallery = document.getElementById('randomGallery');
-			  if (!gallery) return;
-			  gallery.innerHTML = '';
-			  // 随机选取3张图片展示
-			  shuffle(galleryImages).slice(0, 3).forEach(item => {
-			    const article = document.createElement('article');
-			    article.innerHTML = `
-			      <span class="image">
-			        <img src="${item.src}" alt="" />
-			      </span>
-			      <a href="${item.link}">
-			        <h2>${item.title}</h2>
-			        <div class="content">
-			          <p>${item.desc}</p>
-			        </div>
-			      </a>
-			    `;
-			    gallery.appendChild(article);
-			  });
-			}
-			document.addEventListener('DOMContentLoaded', renderRandomGallery);
-			</script>
+	
 
 
 
